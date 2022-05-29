@@ -1,7 +1,7 @@
-import { AsyncData, GalleryItemResponse, GalleriesResponse } from '_types';
+import { Gallery, GalleryItemResponse } from '_types';
 
 export type GalleriesState = {
-    galleries?: GalleriesResponse;
+    galleries?: Gallery[];
     selectedGallery?: GalleryItemResponse;
     loading: boolean;
 };

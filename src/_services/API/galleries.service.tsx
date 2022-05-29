@@ -1,6 +1,6 @@
 import ApiService from './api.service';
-import { API_PATHS } from '../constants';
-import { GalleriesResponse, GalleryItemResponse } from '../_types/galleries.type';
+import { API_PATHS } from '../../constants';
+import { GalleriesResponse, GalleryItemResponse } from '_types';
 
 export class GalleriesService extends ApiService {
 

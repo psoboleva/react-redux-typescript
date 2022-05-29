@@ -22,7 +22,6 @@ export function configureStore() {
 
     return createStore(
         rootReducer,
-        rootState,
         composeWithDevTools(),
     );
 }
