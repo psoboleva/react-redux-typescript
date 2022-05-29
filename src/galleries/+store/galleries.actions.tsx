@@ -1,4 +1,4 @@
-import { GalleriesResponse } from "../../_types/galleries.type";
+import { GalleriesResponse } from "_types";
 
 interface LoadGalleries {}
 
@@ -16,14 +16,9 @@ interface LoadGalleriesSuccess {
     | { type: 'LOAD_GALLERIES_FAILURE'; error: string };
   
   // action creators
-  export function LoadGalleries(): GalleriesActionTypes {
-    return { type: 'LOAD_GALLERIES' };
-  }
+  export const LoadGalleries = (): GalleriesActionTypes => ({ type: 'LOAD_GALLERIES' });
 
-  export function LoadGalleriesSuccess(galleries: GalleriesResponse): GalleriesActionTypes {
-    return { type: 'LOAD_GALLERIES_SUCCESS', galleries };
-  }
+  export const LoadGalleriesSuccess = (galleries: GalleriesResponse): GalleriesActionTypes => 
+      ({ type: 'LOAD_GALLERIES_SUCCESS', galleries });
   
-  export function LoadGalleriesFailure(error: string): GalleriesActionTypes {
-    return { type: 'LOAD_GALLERIES_FAILURE', error };
-  }
+  export const LoadGalleriesFailure = (error: string): GalleriesActionTypes => ({ type: 'LOAD_GALLERIES_FAILURE', error });

@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import Heading from '../Heading';
 
-const About: FC<{}> = () => {
+export const AboutPage: FC<{}> = () => {
   return (
      <Heading title="About" />
   );
 };
 
-export default About;
+export default AboutPage;

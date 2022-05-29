@@ -4,10 +4,11 @@ type FetchDataOptions = {
 
 export class ApiService {
     public async getData<T>(url: string, options?: FetchDataOptions): Promise<T> {
-        let getDataPromise: Promise<T> = new Promise((_, reject) => {
+        const baseUrl = process.env.REACT_APP_API_HOST;
+        let getDataPromise: Promise<T> = new Promise((resolve, reject) => {
             const cleanUrl = url.replace(/([^:]\/)\/+/g, '$1');
 
-            fetch(cleanUrl)
+            fetch(`${baseUrl}/${cleanUrl}`)
                 .then(async (res) => {
                     if (!res.ok) {
                         throw (res);
@@ -21,6 +22,9 @@ export class ApiService {
 
                     const json = JSON.parse(text);
                     return json;
+                })
+                .then(res => {
+                    resolve(res as T);
                 })
                 .catch(error => {
                     console.error(`API call GET '${url}' fails with code: ${error.statusCode}. Exception: ${error.toString()}`);

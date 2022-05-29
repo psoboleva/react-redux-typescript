@@ -15,13 +15,15 @@ export const galleriesReducer = (state: GalleriesState = initialState, action: G
           case 'LOAD_GALLERIES_SUCCESS':
             return {
                 ...state,
-                galleries: action.galleries
+                galleries: action.galleries,
+                loading: false,
             };
 
           case 'LOAD_GALLERIES_FAILURE':
             return {
                 ...state,
-                error: action.error
+                error: action.error,
+                loading: false
             };
 
           default:

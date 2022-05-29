@@ -2,28 +2,24 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Container } from 'react-bootstrap';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
 import './index.scss';
-import rootReducer from './rootReducer';
-import Navigation from './baseframe/Navigation';
-import Home from './baseframe/pages/Home';
-import About from './baseframe/pages/About';
+import { configureStore } from './rootReducer';
+import { Navigation, HomePage, AboutPage, GalleriesPage } from 'baseframe';
 import reportWebVitals from './reportWebVitals';
-
-const store = createStore(rootReducer);
 
 // @ts-ignore
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-  <Provider store={store}>
+  <Provider store={configureStore()}>
   <BrowserRouter>
     <Navigation />
     <Container>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="galleries" element={<GalleriesPage />} />
       </Routes>
     </Container>
   </BrowserRouter>

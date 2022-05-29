@@ -1,5 +1,4 @@
-import { GalleryItemResponse, GalleriesResponse } from '../../_types/galleries.type';
-import { AsyncData } from '../../_types/shared.type';
+import { AsyncData, GalleryItemResponse, GalleriesResponse } from '_types';
 
 export type GalleriesState = {
     galleries?: GalleriesResponse;
