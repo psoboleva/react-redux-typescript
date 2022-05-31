@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
+import { Spinner } from 'react-bootstrap';
 
-type PreloaderProps = {
-    title?: string;
-};
-
-export const Preloader: FC<PreloaderProps> = ({ title }) => <h4 className="preloader">Loading { title }</h4>
+export const Preloader: FC<{}> = (): JSX.Element => 
+    <div className="position-absolute w-100 v-100">
+        <Spinner animation="grow" variant="light" className="position-fixed top-50 end-50" />
+    </div>
 
 export default Preloader;

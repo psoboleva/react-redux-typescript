@@ -1,4 +1,4 @@
-import { Gallery, GalleriesResponse, GalleryItemResponse, GalleryItem, Photo } from '_types';
+import { Gallery, GalleriesResponse, GalleryItemResponse, GalleryItem } from '_types';
 
 export class GalleriesMapper {
 
@@ -16,7 +16,7 @@ export class GalleriesMapper {
         return galleries;
     }
 
-    mapPhotos(data: GalleryItemResponse): Photo[] {
+    mapPhotos(data: GalleryItemResponse): Gallery[] {
 
         return Object.keys(data.items).map((key) => {
             const id = parseInt(key);

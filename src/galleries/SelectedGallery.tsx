@@ -11,21 +11,18 @@ export const SelectedGallery: FC<{}> = (): JSX.Element => {
 
   useSelectedGalleryEffect(id);
 
-  if(!F.selectedGallery){
-    return (<></>);
-  }
-
   return (
-    <>
-      {F.selectedGallery?.title && <h4>{F.selectedGallery.title}</h4>}
-      <div className="galleries-wrapper photos">
-        {F.selectedGallery?.photos.map((photo, i) => (
+    !!F.selectedGallery ?
+    (<>
+      <h4>{F.selectedGallery.title}</h4>
+      <div className="photos-wrapper">
+        {F.selectedGallery.photos.map((photo, i) => (
           <div className="item" key={i}>
             <img src={photo.thumbnail} />
           </div>
         ))}
       </div> 
-    </>
+    </>) : <></>
       
   );
 };

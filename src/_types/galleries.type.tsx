@@ -30,17 +30,14 @@ export interface Gallery {
     id: number;
     title: string;
     thumbnail: string;
-}
-
-export interface Photo extends Gallery {
-    subtitle: string;
-    description: string;
-    fullSize: string;
+    subtitle?: string;
+    description?: string;
+    fullSize?: string;
 }
 
 export interface GalleryItem {
     id: number;
     title: string;
     description: string;
-    photos: Photo[];
+    photos: Gallery[];
 }
