@@ -4,3 +4,45 @@ body {
   background: $gray-800;
   color: $white;
 }
+
+.galleries-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: -1.875em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1.875em;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 1.875em;
+  -moz-column-fill: auto;
+  column-count: 3;
+  column-gap: 1.875em;
+  column-fill: auto;
+
+  &.photos {
+    column-count: 7;
+    -webkit-column-count: 7;
+    -moz-column-count: 7;
+    column-gap: 0.7em;
+    -moz-column-gap: 0.7em;
+    -webkit-column-gap: 0.7em;
+    margin-bottom: 0.7em;
+    .item {
+      margin-bottom: 0.7em;
+    }
+  }
+
+  .item {
+    margin-bottom: 1.875em;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    border-radius: 2px;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

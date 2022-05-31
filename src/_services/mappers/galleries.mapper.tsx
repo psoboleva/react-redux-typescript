@@ -1,4 +1,4 @@
-import { Gallery, GalleriesResponse } from '_types';
+import { Gallery, GalleriesResponse, GalleryItemResponse, GalleryItem, Photo } from '_types';
 
 export class GalleriesMapper {
 
@@ -16,4 +16,32 @@ export class GalleriesMapper {
         return galleries;
     }
 
+    mapPhotos(data: GalleryItemResponse): Photo[] {
+
+        return Object.keys(data.items).map((key) => {
+            const id = parseInt(key);
+            const fileName = data.items[id].data.guid.split('/').reverse()[0];
+            const thumbnail = data.items[id].data.guid.replace(fileName, data.items[id].metadata.sizes.medium.file);
+
+            return {
+                id,
+                title: data.items[id].post_title,
+                thumbnail,
+                subtitle: data.items[id].post_excerpt || null,
+                description: data.items[id].post_content || null,
+                fullSize: data.items[id].guid,
+            }
+
+        });
+    }
+
+    mapGalleryItem(data: GalleryItemResponse): GalleryItem {
+        return ({
+            id: data.parent_id,
+            title: data.parent_title,
+            description: data.parent_data.Description || '',
+            photos: this.mapPhotos(data)
+        });
+    }
 }
+

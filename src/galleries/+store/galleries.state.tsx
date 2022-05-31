@@ -1,7 +1,7 @@
-import { Gallery, GalleryItemResponse } from '_types';
+import { Gallery, GalleryItem, GalleryItemResponse } from '_types';
 
 export type GalleriesState = {
     galleries?: Gallery[];
-    selectedGallery?: GalleryItemResponse;
+    selectedGallery?: GalleryItem;
     loading: boolean;
 };

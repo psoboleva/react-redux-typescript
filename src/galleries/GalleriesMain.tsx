@@ -1,17 +1,21 @@
 import { FC } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { Preloader } from 'UI/Preloader';
 import GalleriesList from './GalleriesList';
-import { useGalleriesEffect } from './+store/galleries.effects';
+import { SelectedGallery } from './SelectedGallery';
 import { GalleriesFacade } from './+store/galleries.facade';
 
 export const GalleriesMain: FC<{}> = (): JSX.Element => { 
   const F = GalleriesFacade();
-  const Content: FC<{}> = (): JSX.Element => F.loading ? <Preloader title={'Galleries'} /> : <GalleriesList />;
+  const { id } = useParams();
 
-  useGalleriesEffect();
-
-  return (<Content />);
+  return (
+      <>
+      { F.loading && <Preloader />}
+      { !id ? <GalleriesList /> : <SelectedGallery />}
+      </>
+  );
 };
 
 export default GalleriesMain;

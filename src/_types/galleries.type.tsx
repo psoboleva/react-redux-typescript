@@ -1,12 +1,14 @@
+export interface GalleryBase {
+    ID: number;
+    post_title: string;
+    thumbnail: string;
+    guid: string;
+    post_content: string;
+    [x: string]: any;
+}
+
 export interface GalleriesResponse {
-    [x: number]: {
-        ID: number;
-        post_title: string;
-        thumbnail: string;
-        guid: string;
-        post_content: string;
-        [x: string]: any;
-    }
+    [x: number]: GalleryBase;
 }
 
 export interface GalleryItemResponse {
@@ -18,7 +20,7 @@ export interface GalleryItemResponse {
     },
     items: {
         [x: number]: {
-            data: GalleriesResponse;
+            data: GalleryBase;
             [x: string]: any;
         }
     }
@@ -30,8 +32,15 @@ export interface Gallery {
     thumbnail: string;
 }
 
-export interface GalleryItem extends Gallery {
+export interface Photo extends Gallery {
     subtitle: string;
     description: string;
     fullSize: string;
+}
+
+export interface GalleryItem {
+    id: number;
+    title: string;
+    description: string;
+    photos: Photo[];
 }

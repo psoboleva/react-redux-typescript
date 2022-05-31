@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Link, NavLink, Routes, Route } from "react-router-dom";
 import { Container } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 
@@ -20,6 +20,7 @@ root.render(
         <Route path="/" element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="galleries" element={<GalleriesPage />} />
+        <Route path="galleries/:id" element={<GalleriesPage />} />
       </Routes>
     </Container>
   </BrowserRouter>

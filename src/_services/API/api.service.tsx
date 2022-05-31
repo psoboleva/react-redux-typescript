@@ -3,6 +3,10 @@ type FetchDataOptions = {
 };
 
 export class ApiService {
+
+    //in this testing app we only GET data
+    //a real API service should have also POST, PATCH, DELETE methods
+
     public async getData<T>(url: string, options?: FetchDataOptions): Promise<T> {
         const baseUrl = process.env.REACT_APP_API_HOST;
         let getDataPromise: Promise<T> = new Promise((resolve, reject) => {

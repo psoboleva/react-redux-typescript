@@ -5,3 +5,4 @@ export * from './+store/galleries.effects';
 export * from './+store/galleries.facade';
 export * from './GalleriesList';
 export * from './GalleriesMain';
+export * from './SelectedGallery';

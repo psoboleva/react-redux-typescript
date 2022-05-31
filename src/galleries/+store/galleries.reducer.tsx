@@ -20,11 +20,24 @@ export const galleriesReducer = (state: GalleriesState = initialState, action: G
             };
 
           case 'LOAD_GALLERIES_FAILURE':
+          case 'LOAD_GALLERY_FAILURE':
             return {
                 ...state,
                 error: action.error,
                 loading: false
             };
+            case 'LOAD_GALLERY':
+              return {
+                ...state,
+                loading: true,
+                selectedGallery: undefined,
+              };
+            case 'LOAD_GALLERY_SUCCESS':
+                return {
+                    ...state,
+                    selectedGallery: action.selectedGallery,
+                    loading: false,
+                };
 
           default:
             return state;

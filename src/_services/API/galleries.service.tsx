@@ -9,6 +9,6 @@ export class GalleriesService extends ApiService {
     }
 
     public async getGallery(id: number): Promise<GalleryItemResponse> {
-        return await this.getData<GalleryItemResponse>(`${API_PATHS.GALLERY}?id=${id}`);
+        return await this.getData<GalleryItemResponse>(`${API_PATHS.GALLERY}?gallery=${id}`);
     }
 }

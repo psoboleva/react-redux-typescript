@@ -1,18 +1,19 @@
-import React, { FC } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { FC } from 'react';
+import { NavLink } from "react-router-dom";
+import { Container } from 'react-bootstrap';
 
-export const Navigation: FC<{}> = () => {
+export const Navigation: FC<{}> = (): JSX.Element => {
     return (
-        <Navbar bg="dark" variant="dark">
+        <nav className="navbar bg-dark">
             <Container>
-                <Navbar.Brand href="#home">Back to React</Navbar.Brand>
-                <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/about">About</Nav.Link>
-                    <Nav.Link href="/galleries">Galleries</Nav.Link>
-                </Nav>
+            <div className="btn-group">
+                <NavLink className="btn btn-secondary" to="/" >Home</NavLink>
+                <NavLink className="btn btn-secondary" to="/about">About</NavLink>
+                <NavLink className="btn btn-secondary" to="/galleries">Galleries</NavLink>
+            </div>
             </Container>
-        </Navbar>
+          
+        </nav>
     );
 };
 
