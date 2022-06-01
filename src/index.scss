@@ -1,10 +1,17 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import './_scss/gallery';
-@import './_scss/image';
 
 body {
   background: $gray-800;
   color: $white;
+}
+
+.galleries-wrapper {
+  @include photos-container(1.8em, 3, 10em, $gray-800)
+}
+
+.photos-wrapper {
+  @include photos-container(0.4em, 7, 5em)
 }
 
 

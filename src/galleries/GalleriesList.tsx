@@ -14,7 +14,7 @@ const GalleriesList: FC<{}> = () => {
         {!!F.galleries && F.galleries.map((gallery, i) => (
           <div className="item" key={i}>
             <Link to={`${gallery.id}`}><Image src={gallery.thumbnail} /></Link>
-            {gallery.title}
+            <div className="title">{gallery.title}</div>
           </div>
         ))}
       </div>
