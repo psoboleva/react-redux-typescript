@@ -1,0 +1,40 @@
+@mixin photos-container($gap, $columnsNumber, $tileHight) {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: $gap*(-1);
+    -webkit-column-count: $columnsNumber;
+    -webkit-column-gap: $gap;
+    -webkit-column-fill: auto;
+    -moz-column-count: $columnsNumber;
+    -moz-column-gap: $gap;
+    -moz-column-fill: auto;
+    column-count: $columnsNumber;
+    column-gap: $gap;
+    column-fill: auto;
+  
+    .item {
+      margin-bottom: $gap;
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      column-break-inside: avoid;
+      overflow: hidden;
+      min-height: $tileHight;
+      &:hover {
+        opacity: 0.8;
+      }
+  
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 2px;
+      }
+    }
+  }
+  
+  .galleries-wrapper {
+    @include photos-container(1.8em, 3, 10em)
+  }
+  
+  .photos-wrapper {
+    @include photos-container(0.4em, 7, 5em)
+  }

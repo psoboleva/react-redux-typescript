@@ -16,7 +16,7 @@ export class GalleriesMapper {
         return galleries;
     }
 
-    mapPhotos(data: GalleryItemResponse): Gallery[] {
+    private mapPhotos(data: GalleryItemResponse): Gallery[] {
 
         return Object.keys(data.items).map((key) => {
             const id = parseInt(key);
@@ -35,7 +35,7 @@ export class GalleriesMapper {
         });
     }
 
-    mapGalleryItem(data: GalleryItemResponse): GalleryItem {
+   public mapGalleryItem(data: GalleryItemResponse): GalleryItem {
         return ({
             id: data.parent_id,
             title: data.parent_title,
